@@ -60,6 +60,19 @@ public class ConfidentialClientApplication extends AbstractClientApplicationBase
         return this.executeRequest(oboRequest);
     }
 
+    @Override
+    public CompletableFuture<IAuthenticationResult> acquireToken(UserNamePasswordParameters parameters) {
+
+        validateNotNull("parameters", parameters);
+
+        UserNamePasswordRequest userNamePasswordRequest =
+                new UserNamePasswordRequest(parameters,
+                        this,
+                        createRequestContext(PublicApi.ACQUIRE_TOKEN_BY_USERNAME_PASSWORD, parameters));
+
+        return this.executeRequest(userNamePasswordRequest);
+    }
+
     private ConfidentialClientApplication(Builder builder) {
         super(builder);
 

@@ -14,6 +14,12 @@ class UserNamePasswordRequest extends MsalRequest{
         super(application, createAuthenticationGrant(parameters), requestContext);
     }
 
+    UserNamePasswordRequest(UserNamePasswordParameters parameters,
+                            ConfidentialClientApplication application,
+                            RequestContext requestContext) {
+        super(application, createAuthenticationGrant(parameters), requestContext);
+    }
+
     private static OAuthAuthorizationGrant createAuthenticationGrant(
             UserNamePasswordParameters parameters) {
 

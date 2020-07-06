@@ -30,4 +30,11 @@ public interface IConfidentialClientApplication extends IClientApplicationBase {
      * @return {@link CompletableFuture} containing an {@link IAuthenticationResult}
      */
     CompletableFuture<IAuthenticationResult> acquireToken(OnBehalfOfParameters parameters);
+
+    /**
+     * Acquires tokens from the authority configured in the application via Username/Password authentication.
+     * @param parameters instance of {@link UserNamePasswordParameters}
+     * @return {@link CompletableFuture} containing an {@link IAuthenticationResult}
+     */
+    CompletableFuture<IAuthenticationResult> acquireToken(UserNamePasswordParameters parameters);    
 }
